@@ -43,7 +43,7 @@ A simple example is to compare D.1 (Compensation of employees) reported in table
 ```r
 library(tidyverse)
 
-  regacc %>% 
+  top_commuting<- regacc %>% 
   filter (na_item =="D1" & 
           nace_r2 %in% c("TOTAL","Z") &
           time == 2019 &
@@ -58,4 +58,5 @@ library(tidyverse)
   arrange(desc(comm)) %>% 
   head(10)
 
+print(top_commuting)
 ```
