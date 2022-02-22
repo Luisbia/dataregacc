@@ -34,5 +34,29 @@ The dataset becomes available typing `regacc`. The class of the dataset is a `da
 
 - **values:** no need to describe (I think).
 
-- **flags:** for some observations they are relevant (D: definition differs, B: breaks). In most cases are empty and there are a few P: provisional and E: estimate. I only consider relevant D's and B's. P's and (most of the time) E's are more a country practice than a real difference. 
+- **flags:** for some observations they are relevant (D: definition differs, B: breaks). In most cases, they are empty and there are a few P: provisional and E: estimate. I only consider relevant D's and B's. P's and (most of the time) E's are more a country practice than a real difference. 
 
+# What can I do?
+
+A simple example is to compare D.1 (Compensation of employees) reported in table 2coe (where it is paid or the location of the company) and D.1 reported in table 2hh (where the worker lives).
+
+```r
+library(tidyverse)
+
+  data<-regacc %>% 
+  filter (na_item =="D1" & 
+          nace_r2 %in% c("TOTAL","Z") &
+          time == 2019 &
+          NUTS == 2 &
+          unit =="MIO_NAC" &
+          label !="Extra-regio") %>% 
+  select(country,geo,label,table,values) %>% 
+  mutate(table=str_remove(table,"2")) %>% 
+  pivot_wider(names_from = table,
+              values_from = values) %>% 
+  mutate(comm = round(coe*100/hh,1)) %>% 
+  arrange(desc(comm)) %>% 
+  head(10)
+  
+  knitr::kbl(data)
+```
