@@ -4,37 +4,35 @@ This is a personal data package that consolidates all the regional accounts tabl
 
 # Install
 
+```{r}
 remotes::install_github("Luisbia/dataregacc")
-
+```
 
 # Structure of the data set
 
 The dataset becomes available typing `regacc`. The class of the dataset is a `data.frame` and a `data.table`. It has approximately 3.5 million rows and 12 columns. 
 
-- table: a similar but shorter name than the one used by Eurostat (2gdp instead of nama_10_2gdp)
+- **table:** a similar but shorter name than the one used by Eurostat (2gdp instead of nama_10_2gdp)
 
-- country: the country code.
+- **country:** the country code.
 
-- NUTS: the NUTS level code (0 = country, 1 = NUTS 1, 2 = NUTS 2, 3 = NUTS 3). NUTS 3 is available only in three tables.
+- **NUTS:** the NUTS level code (0 = country, 1 = NUTS 1, 2 = NUTS 2, 3 = NUTS 3). NUTS 3 is available only in three tables.
 
-- geo: the region code according to the NUTS 2021 classification.
+- **geo:** the region code according to the NUTS 2021 classification.
 
-- label: the label of the region.
-n
-- na_item: the variable name which normally correspond to the ESA code (B1GQ for GDP). In case of doubt  (RLPR_PER stands for Real Labour Productivity per person) consult the original dataset.
+- **label:** the label of the region.
 
-- nace_r2: refers to the classification of economic activities (NACE). In some tables is available by 10 economic activities. When it is not relevant (for example for population) it is filled with Z.
+- **na_item:** the variable name which normally correspond to the ESA code (B1GQ for GDP). In case of doubt  (RLPR_PER stands for Real Labour Productivity per person) consult the original dataset.
 
-- acc: stands for account and it is mainly needed for Household Accounts. For most variables I set it to BAL.
+- **nace_r2:** refers to the classification of economic activities (NACE). In some tables is available by 10 economic activities. When it is not relevant (for example for population) it is filled with Z.
 
-- unit: the unit measure (PS = persons, HW = hours, MIO_EUR = Millions of Euros and so on.)
+- **acc:** stands for account and it is mainly needed for Household Accounts. For most variables I set it to BAL.
 
-- time: there is only annual data so it corresponds to the year.
+- **unit:** the unit measure (PS = persons, HW = hours, MIO_EUR = Millions of Euros and so on.)
 
-- values: no need to describe (I think).
+- **time:** there is only annual data so it corresponds to the year.
 
-- flags: for some observations they are relevant (D: definition differs, B: breaks). In most cases are empty and there are a few P: provisional and E: estimate. I only consider relevant D's and B's. P's and (most of the time) E's are more a country practice than a real difference. 
+- **values:** no need to describe (I think).
 
-```{r}
+- **flags:** for some observations they are relevant (D: definition differs, B: breaks). In most cases are empty and there are a few P: provisional and E: estimate. I only consider relevant D's and B's. P's and (most of the time) E's are more a country practice than a real difference. 
 
-```
