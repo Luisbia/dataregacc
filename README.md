@@ -43,7 +43,7 @@ A simple example is to compare D.1 (Compensation of employees) reported in table
 ```r
 library(tidyverse)
 
-  data<-regacc %>% 
+  regacc %>% 
   filter (na_item =="D1" & 
           nace_r2 %in% c("TOTAL","Z") &
           time == 2019 &
