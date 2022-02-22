@@ -40,6 +40,7 @@ The dataset becomes available typing `regacc`. The class of the dataset is a `da
 
 A simple example is to compare D.1 (Compensation of employees) reported in table 2coe (where it is paid or the location of the company) and D.1 reported in table 2hh (where the worker lives).
 
+
 ```r
 library(tidyverse)
 
@@ -58,5 +59,5 @@ library(tidyverse)
   arrange(desc(comm)) %>% 
   head(10)
 
-print(top_commuting)
-```
+top_commuting
+
