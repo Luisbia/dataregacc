@@ -57,6 +57,5 @@ library(tidyverse)
   mutate(comm = round(coe*100/hh,1)) %>% 
   arrange(desc(comm)) %>% 
   head(10)
-  
-  knitr::kbl(data)
+
 ```
